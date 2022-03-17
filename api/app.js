@@ -9,7 +9,7 @@ const app = express();
 const PORT = process.env.PORT || 9000;
 
 const indexRoute = require("./routes/index");
-// const scrapeRoute = require("./routes/scrape");
+const scrapeRoute = require("./routes/scrape.js");
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -26,7 +26,7 @@ app.use(logger("dev"));
 
 // Routes
 app.use("/", indexRoute);
-// app.use("/api/v1/scrape", scrapeRoute);
+app.use("/scrape", scrapeRoute);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
